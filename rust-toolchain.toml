@@ -1,0 +1,7 @@
+# [toolchain]
+# channel = "1.85.0"
+# components = ["llvm-tools", "rustc-dev"]
+[toolchain]
+channel = "stable"
+components = ["rustfmt", "rust-src"]
+profile = "minimal"

@@ -1,0 +1,34 @@
+[package]
+version = "0.1.0"
+name = "rsp-r0"
+edition = "2021"
+
+[dependencies]
+dotenv.workspace = true
+tokio.workspace = true
+url.workspace = true
+tracing-subscriber.workspace = true 
+tracing.workspace = true
+clap.workspace = true
+serde_json.workspace = true
+serde.workspace = true
+bincode.workspace = true
+eyre.workspace = true
+rkyv.workspace = true
+sha2.workspace = true
+
+# workspace
+rsp-host-executor.workspace = true
+rsp-client-executor.workspace = true
+rsp-mpt.workspace = true
+
+# alloy
+alloy-provider.workspace = true
+
+# r0
+guests = { path = "../guests" }
+risc0-zkvm.workspace = true
+
+# [[bin]]
+# name = "subblock"
+# path = "src/subblock.rs"
