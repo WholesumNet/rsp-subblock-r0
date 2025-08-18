@@ -5,8 +5,7 @@ edition = "2021"
 
 [build-dependencies]
 risc0-build.workspace = true
-# c-kzg = { version = "=1.0.3" }
 
 [package.metadata.risc0]
-methods = ["unified-eth"]
+methods = ["unified-eth", "subblock-eth", "agg-eth"]
 

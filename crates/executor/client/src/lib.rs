@@ -258,7 +258,7 @@ impl ClientExecutor {
     pub fn execute_aggregation<V: Variant>(
         &self,
         public_values: Vec<Vec<u8>>,
-        vkey: [u32; 8],
+        // vkey: [u32; 8],
         mut aggregation_input: AggregationInput,
         parent_state_root: B256,
     ) -> Result<Header, ClientError> {
@@ -271,7 +271,7 @@ impl ClientExecutor {
                 let public_values_digest = Sha256::digest(public_value);
                 // cfg_if! {
                 //     if #[cfg(target_os = "zkvm")] {
-                //         sp1_zkvm::lib::verify::verify_sp1_proof(&vkey, &public_values_digest.into());
+                        // sp1_zkvm::lib::verify::verify_sp1_proof(&vkey, &public_values_digest.into());
                 //     }
                 // }
                 println!("cycle-tracker-start: deserialize subblock input");

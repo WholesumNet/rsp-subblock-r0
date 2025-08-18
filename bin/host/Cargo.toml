@@ -29,6 +29,6 @@ alloy-provider.workspace = true
 guests = { path = "../guests" }
 risc0-zkvm.workspace = true
 
-# [[bin]]
-# name = "subblock"
-# path = "src/subblock.rs"
+[[bin]]
+name = "subblock"
+path = "src/subblock.rs"
