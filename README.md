@@ -1,4 +1,4 @@
-# Reth Succinct Processor (RSP): Subblock POC
+# Reth Succinct Processor (RSP): Subblock POC on R0VM
 
 > [!CAUTION]
 >
@@ -6,27 +6,27 @@
 
 ## Overview
 
-A proof of concept system for generating zero-knowledge proofs of EVM block execution using [Reth](https://github.com/paradigmxyz/reth) in real time (Sub 12 seconds). Intended for use with Succinct's Prover Network, for ultra low-latency proofs.
+A proof of concept system for generating zero-knowledge proofs of EVM block execution using [Reth](https://github.com/paradigmxyz/reth).
 
 In order to minimize latency, Ethereum blocks are split up by transaction into several subblocks.
 Each subblock proof can be generated in parallel, and then aggregated into a single proof.
 
 ## Getting Started
 
-To build and execute a monolithic SP1 program for a given block, run:
+To build and execute a unified Risc0 program for a given block, run:
 
 ```bash
-cargo run --release --bin rsp -- --block-number <block_number> --chain-id 1 
+cargo run --release --bin rsp-r0 -- --block-number <block_number> --chain-id 1 
 ```
 
-To build and execute the subblock and aggregation SP1 programs for a given block, run:
+To build and execute the subblock and aggregation Risc0 programs for a given block, run(currently not working):
 
 ```bash
 cargo run --release --bin subblock -- --block-number <block_number> --chain-id 1 
 ```
 
 Note that neither of these commands will actually generate proofs. They will only build the executables
-and optionally execute them in the SP1 zkVM.
+and optionally execute them in the Risc0 zkVM.
 
 Run the following command for more details on the CLI.
 
@@ -36,7 +36,7 @@ cargo run --release --bin subblock -- --help
 
 ## Subblock constraint overview
 
-Each subblock uses the SP1 program in [`bin/client-eth-subblock`](bin/client-eth-subblock). The subblock program takes as input:
+Each subblock uses the Risc0 program in [`bin/guests/subblock-eth`](bin/guests/subblock-eth). The subblock program takes as input:
 
 1. The subblock to execute. This takes the form of a normal block, except only the transactions contained in the subblock are included.
 2. The parent state. This contains all the state that is needed to execute the subblock, including any state modified from previous subblocks.
